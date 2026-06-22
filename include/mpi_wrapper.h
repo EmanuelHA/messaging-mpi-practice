@@ -3,11 +3,11 @@
 
 #include <mpi.h>
 
-bool init(int *argc, char ***argv);
-
+int init(int *argc, char ***argv);
 void finalize();
 
-MPI_Request send_msg_async();
-MPI_Status receive_msg();
+void run_coordinator();
+void run_client();
+void run_tests();
 
 #endif // MPI_WRAPPER_H
