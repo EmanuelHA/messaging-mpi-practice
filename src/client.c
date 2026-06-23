@@ -5,7 +5,7 @@ network_data_t net_data;
 
 int send_message(char* msg_text)
 {
-    if ((msg_text != 0) || (strlen(msg_text) == 0)) return 0;
+    if ((msg_text == NULL) || (strlen(msg_text) == 0)) return 0;
     
     int text_len = strlen(msg_text);
     
