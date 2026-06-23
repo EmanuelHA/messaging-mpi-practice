@@ -3,9 +3,11 @@
 
 #include "protocol.h"
 
+#define COORDINATOR 0
+
 int process_request();
 
-int route_message();
+int route_message(Message *msg);
 
 void update_log();
 

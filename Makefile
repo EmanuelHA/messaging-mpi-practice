@@ -1,7 +1,7 @@
 # --- CONFIGURACION DEL COMPILADOR ---
 CC         := mpicc
-CFLAGS     := -Wall -Wextra -Wpedantic -std=c11 -Iinclude
-LDFLAGS    := -lpthread
+CFLAGS     := -Wall -Wextra -Wpedantic -std=c11 -Iinclude $(shell pkg-config --cflags gtk+-3.0)
+LDFLAGS    := -lpthread $(shell pkg-config --libs gtk+-3.0)
 
 # --- DIRECTORIOS ---
 SRC_DIR    := src
@@ -15,7 +15,8 @@ OBJS       := $(OBJ_DIR)/main.o \
               $(OBJ_DIR)/client.o \
               $(OBJ_DIR)/coordinator.o \
               $(OBJ_DIR)/mpi_wrapper.o \
-              #$(OBJ_DIR)/protocol.o \
+              $(OBJ_DIR)/protocol.o \
+			  $(OBJ_DIR)/gui.o \
 
 # --- EJECUTABLE FINAL ---
 TARGET     := $(BIN_DIR)/mpi_messaging
